@@ -1,0 +1,184 @@
+[
+      {
+          "type": "api",
+          "eventName": "PERSONAL INFORMATION: SUBMIT PERSONAL INFO",
+          "endpoint": "https://60bg31zd6g.execute-api.ap-southeast-1.amazonaws.com/kyc",
+          "payload": {
+              "requestContext": {
+                  "http": {
+                      "method": "POST"
+                  }
+              },
+              "body": "{\r\n    \"kycStage\": \"personalIdentity\",\r\n    \"requestType\": \"submit-personal-information\",\r\n    \"userId\": \"user101\",\r\n    \"payload\": {\r\n        \"addressInfo\": {\r\n            \"addressString\": \"fghfgh\",\r\n            \"country\": \"\",\r\n            \"postalCode\": \"345345\"\r\n        },\r\n        \"emailInfo\": {\r\n            \"emailAddress\": \"shree@mail.com\"\r\n        },\r\n        \"idDocInfo\": {\r\n            \"country\": \"IND\",\r\n            \"dateOfExpiry\": \"01/11/1973\",\r\n            \"dateOfIssue\": \"01/11/1973\",\r\n            \"docName\": \"\",\r\n            \"docPath\": \"dev/docs/identity/a6fb4e9c-c4b0-46d7-bb01-9ba8fa470441/6cb81d76-dfc7-4b1f-8a0c-472fcd07e296.jpeg\",\r\n            \"docTitle\": \"6cb81d76-dfc7-4b1f-8a0c-472fcd07e296.jpeg\",\r\n            \"docUUID\": \"6cb81d76-dfc7-4b1f-8a0c-472fcd07e296\",\r\n            \"idNumber\": \"F7802033\",\r\n            \"idType\": \"PASSPORT\",\r\n            \"placeOfIssue\": \"MUMBAI\",\r\n            \"title\": \"Proof of Identity\"\r\n        },\r\n        \"mobileInfo\": {\r\n            \"countryCode\": \"\",\r\n            \"mobileNumber\": \"7083626968\"\r\n        },\r\n        \"userInfo\": {\r\n            \"countryOfResidence\": \"\",\r\n            \"dob\": \"01/11/1973\",\r\n            \"firstName\": \"AWS\",\r\n            \"gender\": 2,\r\n            \"lastName\": \"RAI\",\r\n            \"middleName\": \"\",\r\n            \"nationality\": \"AO\",\r\n            \"pep\": \"\",\r\n            \"placeOfBirth\": \"MANGALORE KARNATAKA\"\r\n        }\r\n    }\r\n}",
+              "isBase64Encoded": false
+          },
+          "expectedStatusCode": 200
+      },
+    
+     
+        {
+          "type": "api",
+          "eventName": "PERSONAL INFORMATION: GET IDENTITY DOC UPLOAD URL",
+          "endpoint":"https://fu9vhuqd7c.execute-api.ap-southeast-1.amazonaws.com/doc-uploader?requestType=get-upload-url&fileType=image/jpg",
+          "payload": {
+            "requestContext": {
+              "http": {
+                "method": "POST"
+              }
+            },
+            "body": "{\r\n    \"details\": {\r\n        \"userId\": \"user101\",\r\n        \"fileCategory\": \"identity\",\r\n        \"fileOCRTemplate\": \"passport\"\r\n    }\r\n}",
+            "isBase64Encoded": false
+          },
+          "expectedStatusCode": 200
+        },
+        {
+          "type": "api",
+          "eventName": "LIVELINESS DETECTION: CREATE LIVELINESS SESSION",
+          "endpoint":"https://60bg31zd6g.execute-api.ap-southeast-1.amazonaws.com/kyc",
+          "payload": {
+            "requestContext": {
+              "http": {
+                "method": "POST"
+              }
+            },
+            "body": "{\r\n    \"kycStage\": \"livelinessDetection\",\r\n    \"requestType\": \"create-session\",\r\n    \"userId\": \"user101\",\r\n    \"imageHeight\": 720,\r\n    \"imageWidth\": 1280\r\n}",
+            "isBase64Encoded": false
+          },
+          "expectedStatusCode": 200
+        },
+        {
+          "type": "api",
+          "eventName": "LIVELINESS DETECTION: GET LIVELINESS VIDEO",
+          "endpoint":"https://cloud-api.adroit-vantage.com/dev/aim/doc-uploader?requestType=get-upload-url&fileType=video/mp4",
+          "payload": {
+            "requestContext": {
+              "http": {
+                "method": "POST"
+              }
+            },
+            "body": "{\r\n    \"details\": {\r\n        \"userId\": \"user101\",\r\n        \"fileCategory\": \"liveliness-video\",\r\n        \"sessionId\": \"b9e37816-66b7-4005-9992-942dd169f6fc\"\r\n    }\r\n}",
+            "isBase64Encoded": false
+          },
+          "expectedStatusCode": 200
+        },
+        {
+          "type":"api",
+            "eventName": "AI DOCS: SUBMIT AI DOCS ",
+            "endpoint":"https://60bg31zd6g.execute-api.ap-southeast-1.amazonaws.com/kyc",
+           "payload": {
+              "requestContext": {
+                "http": {
+                  "method": "POST"
+                }
+              },
+              "body": "{\r\n    \"kycStage\": \"personalIdentity\",\r\n    \"requestType\": \"submit-personal-information\",\r\n    \"userId\": \"user101\",\r\n    \"payload\": {\r\n        \"addressInfo\": {\r\n            \"addressString\": \"fghfgh\"\r\n        }\r\n    }\r\n}",
+              "isBase64Encoded": false
+            },
+            "expectedStatusCode": 200
+          },
+          {
+            "type":"api",
+            "eventName": "AI DOCS: GET AI DOC UPLOAD URL"   ,
+           "endpoint":"https://cloud-api.adroit-vantage.com/dev/aim/doc-uploader?requestType=get-upload-url&fileType=image/jpg",      
+            "payload": {
+              "requestContext": {
+                "http": {
+                  "method": "POST"
+                }
+              },
+              "body": "{\r\n    \"details\": {\r\n        \"userId\": \"user101\",\r\n        \"fileCategory\": \"sow\",\r\n        \"fileOCRTemplate\": \"salary\"\r\n    }\r\n}",
+              "isBase64Encoded": false
+            },
+            "expectedStatusCode": 200
+          },
+          {
+            "type":"api",
+            "eventName": "GET UPLOAD SIGNED URl  ",
+            "endpoint":"https://cloud-api.adroit-vantage.com/dev/aim/doc-uploader?requestType=get-upload-url&fileType=image/jpg",
+            "payload": {
+              "requestContext": {
+                "http": {
+                  "method": "POST"
+                }
+              },
+              "body": "{\r\n    \"details\": {\r\n        \"userId\": \"user101\",\r\n        \"fileCategory\": \"issue-attachment\"\r\n    }\r\n}",
+              "isBase64Encoded": false
+            },
+            "expectedStatusCode": 200
+          },
+          {
+            "type":"api",
+            "eventName": "SUBMIT AI FORM INFO ",
+            "endpoint":"https://cloud-api.adroit-vantage.com/uat/aim/kyc",
+            "payload": {
+              "requestContext": {
+                "http": {
+                  "method": "POST"
+                }
+              },
+              "body": "{\r\n    \"requestType\": \"submit-accredited-investor-form-info\",\r\n    \"userId\": \"user101\",\r\n    \"accreditedInvestorForm\": {\r\n        \"formOpeningTime\": 4354354354,\r\n        \"formSubmissionTime\": 4354354354\r\n    }\r\n}",
+              "isBase64Encoded": false
+            },
+            "expectedStatusCode": 200
+          },
+          {
+            "type":"api",
+            "eventName": "MODIFY STATE (STATUS/MESSAGE/PERCENTAGE)",
+            "endpoint":"https://cloud-api.adroit-vantage.com/dev/aim/kyc",
+            "payload": {
+              "requestContext": {
+                "http": {
+                  "method": "POST"
+                }
+              },
+              "body": "{\r\n    \"requestType\": \"modity-state\",\r\n    \"userId\": \"user101\",\r\n    \"state\": {\r\n        \"personalIdentity\": {\r\n            \"status\": \"SUCCESS\",\r\n            \"percentageCompleted\": 1,\r\n            \"message\": \" ... \"\r\n        },\r\n        \"incomeDocumentsAI\": {\r\n            \"percentageCompleted\": 33,\r\n            \"message\": \"Action Required: Reupload the documents\",\r\n            \"status\": \"PENDING\"\r\n        },\r\n        \"livelinessDetection\": {\r\n            \"percentageCompleted\": 33,\r\n            \"message\": \"Action Required: Liveliness detection failed\",\r\n            \"status\": \"SUCCESS\"\r\n        }\r\n    }\r\n}",
+              "isBase64Encoded": false
+            },
+            "expectedStatusCode": 200
+          },
+          {
+            "type":"api",
+            "eventName": "MODIFY RELATIONS METADATA",
+            "endpoint":"https://3qrzkf2by6.execute-api.ap-southeast-1.amazonaws.com/aim/kyc",
+            "payload": {
+              "requestContext": {
+                "http": {
+                  "method": "POST"
+                }
+              },
+              "body": "{\r\n    \"requestType\": \"modify-user-personal-info\",\r\n    \"userId\": \"08ea0670-0615-4f31-bc6d-b67b9d88fa46\",\r\n    \"generationId\": 1681711904006,\r\n    \"relationsData\": {\r\n        \"id\": \"PR_AVD_05055\",\r\n        \"portfolioId\": null,\r\n        \"portfolioData\": null,\r\n        \"bankerId\": \"USERAVD_00288\",\r\n        \"relationshipName\": \"Shree Sagar Rawat\",\r\n        \"relationshipType\": \"INDIVIDUAL\",\r\n        \"relationshipStatus\": \"PROSPECT\",\r\n        \"typeOfRelationship\": \"ADVISORY\",\r\n        \"expectedAUM\": \"10000\",\r\n        \"rm\": \"USERAVD_00288\",\r\n        \"armList\": null,\r\n        \"personProfileList\": [\r\n            {\r\n                \"mobileDetailList\": [\r\n                    {\r\n                        \"id\": \"1\",\r\n                        \"contactType\": \"MOBILE\",\r\n                        \"countryCode\": \"+91\",\r\n                        \"contactAddress\": \"8107815055\",\r\n                        \"contactAddressUseFor\": \"Contact Only\",\r\n                        \"notes\": null,\r\n                        \"contactPreferenceCode\": null,\r\n                        \"contactPreferredDays\": null,\r\n                        \"contactPreferredTime\": null,\r\n                        \"messageServiceCode\": null,\r\n                        \"messageServiceUserName\": null\r\n                    }\r\n                ],\r\n                \"emailDetailList\": [\r\n                    {\r\n                        \"id\": \"1\",\r\n                        \"contactType\": \"EMAIL\",\r\n                        \"countryCode\": null,\r\n                        \"contactAddress\": \"losota7061@jobsfeel.com\",\r\n                        \"contactAddressUseFor\": \"Contact Only\",\r\n                        \"notes\": null,\r\n                        \"contactPreferenceCode\": null,\r\n                        \"contactPreferredDays\": null,\r\n                        \"contactPreferredTime\": null,\r\n                        \"messageServiceCode\": null,\r\n                        \"messageServiceUserName\": null\r\n                    }\r\n                ],\r\n                \"faxDetailList\": [],\r\n                \"telephoneDetailList\": [],\r\n                \"addressList\": [\r\n                    {\r\n                        \"id\": \"1\",\r\n                        \"contactPreference\": \"PRIMARY\",\r\n                        \"addressType\": \"RESIDENCE\",\r\n                        \"line1\": \"Aswath Nagar\",\r\n                        \"line2\": \"\",\r\n                        \"line3\": \"\",\r\n                        \"landmark\": \"\",\r\n                        \"city\": \"\",\r\n                        \"stateOrProvince\": \"\",\r\n                        \"country\": \"IN\",\r\n                        \"residenceSince\": null,\r\n                        \"postalCode\": \"305001\"\r\n                    }\r\n                ],\r\n                \"profilePicture\": null,\r\n                \"displayTime\": \"12.11 PM\",\r\n                \"authorisedPersons\": [],\r\n                \"introducer\": null,\r\n                \"id\": \"PP_AVD_06140\",\r\n                \"relatedParty\": \"PRIMARY\",\r\n                \"firstName\": \"Shree\",\r\n                \"middleName\": \"Sagar\",\r\n                \"lastName\": \"Rawat\",\r\n                \"fullName\": \"Shree Sagar Rawat\",\r\n                \"phoneticName\": null,\r\n                \"previousName\": null,\r\n                \"salutation\": \"\",\r\n                \"prefix\": null,\r\n                \"suffix\": null,\r\n                \"gender\": \"MALE\",\r\n                \"dateOfBirth\": 140293800,\r\n                \"nationality\": \"\",\r\n                \"countryOfResidence\": \"INDIA\",\r\n                \"educationalInfo\": null,\r\n                \"likes\": null,\r\n                \"disLikes\": null,\r\n                \"governmentIdInfoDTOList\": [\r\n                    {\r\n                        \"id\": null,\r\n                        \"country\": \"INDIA\",\r\n                        \"idType\": \"Passport\",\r\n                        \"idNumber\": \"CTDPR4755B\",\r\n                        \"dateOfExpiry\": \"1770834600\",\r\n                        \"isResidenceOfThisCountry\": true\r\n                    }\r\n                ],\r\n                \"taxDetailsList\": null,\r\n                \"maritalStatus\": \"single\",\r\n                \"families\": [\r\n                    {\r\n                        \"id\": null,\r\n                        \"spouse\": null,\r\n                        \"children\": [],\r\n                        \"keepInfoPrivate\": false\r\n                    }\r\n                ],\r\n                \"companies\": [],\r\n                \"executives\": []\r\n            }\r\n        ],\r\n        \"companyInfoList\": null,\r\n        \"relatedPartyList\": [],\r\n        \"onboardingProbability\": \"NA\",\r\n        \"prospectStage\": \"PROSPECTING\",\r\n        \"stagePercentage\": 28.727272727272727,\r\n        \"progressPercentage\": 28.727272727272727,\r\n        \"emptyFieldList\": [],\r\n        \"participantList\": null\r\n    }\r\n}",
+              "isBase64Encoded": false
+            },
+            "expectedStatusCode": 200
+          },
+          {
+            "type":"api",
+            "eventName": "SET COUNTRY OF RESIDENCE",
+            "endpoint":"https://cloud-api.adroit-vantage.com/dev/aim/kyc",
+            "payload": {
+              "requestContext": {
+                "http": {
+                  "method": "POST"
+                }
+              },
+              "body": "{\r\n    \"requestType\": \"modify-user-personal-info\",\r\n    \"userId\": \"08ea0670-0615-4f31-bc6d-b67b9d88fa46\",\r\n    \"generationId\": 1681711904006,\r\n    \"relationsData\": {\r\n        \"id\": \"PR_AVD_05055\",\r\n        \"portfolioId\": null,\r\n        \"portfolioData\": null,\r\n        \"bankerId\": \"USERAVD_00288\",\r\n        \"relationshipName\": \"Shree Sagar Rawat\",\r\n        \"relationshipType\": \"INDIVIDUAL\",\r\n        \"relationshipStatus\": \"PROSPECT\",\r\n        \"typeOfRelationship\": \"ADVISORY\",\r\n        \"expectedAUM\": \"10000\",\r\n        \"rm\": \"USERAVD_00288\",\r\n        \"armList\": null,\r\n        \"personProfileList\": [\r\n            {\r\n                \"mobileDetailList\": [\r\n                    {\r\n                        \"id\": \"1\",\r\n                        \"contactType\": \"MOBILE\",\r\n                        \"countryCode\": \"+91\",\r\n                        \"contactAddress\": \"8107815055\",\r\n                        \"contactAddressUseFor\": \"Contact Only\",\r\n                        \"notes\": null,\r\n                        \"contactPreferenceCode\": null,\r\n                        \"contactPreferredDays\": null,\r\n                        \"contactPreferredTime\": null,\r\n                        \"messageServiceCode\": null,\r\n                        \"messageServiceUserName\": null\r\n                    }\r\n                ],\r\n                \"emailDetailList\": [\r\n                    {\r\n                        \"id\": \"1\",\r\n                        \"contactType\": \"EMAIL\",\r\n                        \"countryCode\": null,\r\n                        \"contactAddress\": \"losota7061@jobsfeel.com\",\r\n                        \"contactAddressUseFor\": \"Contact Only\",\r\n                        \"notes\": null,\r\n                        \"contactPreferenceCode\": null,\r\n                        \"contactPreferredDays\": null,\r\n                        \"contactPreferredTime\": null,\r\n                        \"messageServiceCode\": null,\r\n                        \"messageServiceUserName\": null\r\n                    }\r\n                ],\r\n                \"faxDetailList\": [],\r\n                \"telephoneDetailList\": [],\r\n                \"addressList\": [\r\n                    {\r\n                        \"id\": \"1\",\r\n                        \"contactPreference\": \"PRIMARY\",\r\n                        \"addressType\": \"RESIDENCE\",\r\n                        \"line1\": \"Aswath Nagar\",\r\n                        \"line2\": \"\",\r\n                        \"line3\": \"\",\r\n                        \"landmark\": \"\",\r\n                        \"city\": \"\",\r\n                        \"stateOrProvince\": \"\",\r\n                        \"country\": \"IN\",\r\n                        \"residenceSince\": null,\r\n                        \"postalCode\": \"305001\"\r\n                    }\r\n                ],\r\n                \"profilePicture\": null,\r\n                \"displayTime\": \"12.11 PM\",\r\n                \"authorisedPersons\": [],\r\n                \"introducer\": null,\r\n                \"id\": \"PP_AVD_06140\",\r\n                \"relatedParty\": \"PRIMARY\",\r\n                \"firstName\": \"Shree\",\r\n                \"middleName\": \"Sagar\",\r\n                \"lastName\": \"Rawat\",\r\n                \"fullName\": \"Shree Sagar Rawat\",\r\n                \"phoneticName\": null,\r\n                \"previousName\": null,\r\n                \"salutation\": \"\",\r\n                \"prefix\": null,\r\n                \"suffix\": null,\r\n                \"gender\": \"MALE\",\r\n                \"dateOfBirth\": 140293800,\r\n                \"nationality\": \"\",\r\n                \"countryOfResidence\": \"IN\",\r\n                \"educationalInfo\": null,\r\n                \"likes\": null,\r\n                \"disLikes\": null,\r\n                \"governmentIdInfoDTOList\": [\r\n                    {\r\n                        \"id\": null,\r\n                        \"country\": \"INDIA\",\r\n                        \"idType\": \"Passport\",\r\n                        \"idNumber\": \"CTDPR4755B\",\r\n                        \"dateOfExpiry\": \"1770834600\",\r\n                        \"isResidenceOfThisCountry\": true\r\n                    }\r\n                ],\r\n                \"taxDetailsList\": null,\r\n                \"maritalStatus\": \"single\",\r\n                \"families\": [\r\n                    {\r\n                        \"id\": null,\r\n                        \"spouse\": null,\r\n                        \"children\": [],\r\n                        \"keepInfoPrivate\": false\r\n                    }\r\n                ],\r\n                \"companies\": [],\r\n                \"executives\": []\r\n            }\r\n        ],\r\n        \"companyInfoList\": null,\r\n        \"relatedPartyList\": [],\r\n        \"onboardingProbability\": \"NA\",\r\n        \"prospectStage\": \"PROSPECTING\",\r\n        \"stagePercentage\": 28.727272727272727,\r\n        \"progressPercentage\": 28.727272727272727,\r\n        \"emptyFieldList\": [],\r\n        \"participantList\": null\r\n    }\r\n}",
+              "isBase64Encoded": false
+            },
+            "expectedStatusCode": 200
+          },
+          {
+            "type":"api",
+            "eventName": "PUSH PROOFS AND DOCS INFO   ",
+           "endpoint":"https://3qrzkf2by6.execute-api.ap-southeast-1.amazonaws.com/aim/kyc",
+            "payload": {
+              "requestContext": {
+                "http": {
+                  "method": "POST"
+                }
+              },
+              "body": "{\r\n    \"requestType\": \"modify-proofs-and-docs-info\",\r\n    \"userId\": \"08ea0670-0615-4f31-bc6d-b67b9d88fa46\",\r\n    \"generationId\": 1681711904006,\r\n    \"proofsAndDocs\": {\r\n        \"id\": \"643e40e1769f881af7654a63\",\r\n        \"relationshipId\": \"PR_AVD_05122\",\r\n        \"individualProofsAndDocsList\": [\r\n            {\r\n                \"index\": 2,\r\n                \"title\": \"Proof of Address\",\r\n                \"description\": \"Upload the prospect's proof of residential address. This document should not be dated more than 3 months.\",\r\n                \"requiredDocs\": [\r\n                    {\r\n                        \"role\": \"PRIMARY\",\r\n                        \"isFilled\": \"false\"\r\n                    },\r\n                    {\r\n                        \"role\": \"AUTHORISED_PERSONS\",\r\n                        \"isFilled\": \"false\"\r\n                    }\r\n                ],\r\n                \"clientDocs\": [\r\n                    {\r\n                        \"clientType\": \"PRIMARY\",\r\n                        \"title\": \"PRIMARY\",\r\n                        \"clientDocMaxSize\": \"100MB\",\r\n                        \"docList\": [\r\n                            {\r\n                                \"clientName\": \"PP_AVD_06207\",\r\n                                \"docTitle\": \"Proof of Address\",\r\n                                \"stage\": null,\r\n                                \"docType\": null,\r\n                                \"clientDocUUID\": \"4c8c090e-7c8d-4b0c-94d8-1703558b2243\",\r\n                                \"clientDocName\": \"MAXWELL_TWO_Proof_of_Address.jpeg\",\r\n                                \"clientDocPath\": \"https://avr-doc-vault.s3.ap-south-1.amazonaws.com/4c8c090e-7c8d-4b0c-94d8-1703558b2243.jpeg\",\r\n                                \"clientDocSize\": \"\",\r\n                                \"clientDocMaxSize\": \"100MB\",\r\n                                \"comment\": \"\",\r\n                                \"active\": true\r\n                            }\r\n                        ]\r\n                    }\r\n                ]\r\n            }\r\n        ],\r\n        \"entityProofsAndDocsList\": [],\r\n        \"missingDocumentList\": [\r\n            {\r\n                \"index\": 1,\r\n                \"title\": \"Face-to-Face Verification Video\",\r\n                \"participants\": [\r\n                    \"MAXWELL TWO\"\r\n                ],\r\n                \"count\": 1\r\n            },\r\n            {\r\n                \"index\": 2,\r\n                \"title\": \"Proof of Address\",\r\n                \"participants\": [\r\n                    \"MAXWELL TWO\"\r\n                ],\r\n                \"count\": 1\r\n            },\r\n            {\r\n                \"index\": 3,\r\n                \"title\": \"Proof of Identification\",\r\n                \"participants\": [\r\n                    \"MAXWELL TWO\"\r\n                ],\r\n                \"count\": 1\r\n            },\r\n            {\r\n                \"index\": 4,\r\n                \"title\": \"Screening Result\",\r\n                \"participants\": [\r\n                    \"MAXWELL TWO\"\r\n                ],\r\n                \"count\": 1\r\n            },\r\n            {\r\n                \"index\": 5,\r\n                \"title\": \"Evidence of SOW & SOF\",\r\n                \"participants\": [\r\n                    \"MAXWELL TWO\"\r\n                ],\r\n                \"count\": 1\r\n            },\r\n            {\r\n                \"index\": 6,\r\n                \"title\": \"Client Writeup\",\r\n                \"participants\": [\r\n                    \"MAXWELL TWO\"\r\n                ],\r\n                \"count\": 1\r\n            },\r\n            {\r\n                \"index\": 7,\r\n                \"title\": \"Accredited Investor Opt-in Form\",\r\n                \"participants\": [\r\n                    \"MAXWELL TWO\"\r\n                ],\r\n                \"count\": 1\r\n            },\r\n            {\r\n                \"index\": 8,\r\n                \"title\": \"Notice of Assignment\",\r\n                \"participants\": [\r\n                    \"MAXWELL TWO\"\r\n                ],\r\n                \"count\": 1\r\n            },\r\n            {\r\n                \"index\": 9,\r\n                \"title\": \"Supplementary Letter\",\r\n                \"participants\": [\r\n                    \"MAXWELL TWO\"\r\n                ],\r\n                \"count\": 1\r\n            },\r\n            {\r\n                \"index\": 10,\r\n                \"title\": \"Call Reports- for all interactions and meetings, voice calls, introduction, portfolio update with Client\",\r\n                \"participants\": [\r\n                    \"MAXWELL TWO\"\r\n                ],\r\n                \"count\": 1\r\n            },\r\n            {\r\n                \"index\": 11,\r\n                \"title\": \"Application Forms (For Bank Account Opening)\",\r\n                \"participants\": [\r\n                    \"MAXWELL TWO\"\r\n                ],\r\n                \"count\": 1\r\n            },\r\n            {\r\n                \"index\": 12,\r\n                \"title\": \"Documentation on Limited Power of Attorney Granted to LC\",\r\n                \"participants\": [\r\n                    \"MAXWELL TWO\"\r\n                ],\r\n                \"count\": 1\r\n            },\r\n            {\r\n                \"index\": 13,\r\n                \"title\": \"Printouts\",\r\n                \"participants\": [\r\n                    \"MAXWELL TWO\"\r\n                ],\r\n                \"count\": 1\r\n            },\r\n            {\r\n                \"index\": 14,\r\n                \"title\": \"TAX Residency Declaration / CRS / FATCA\",\r\n                \"participants\": [\r\n                    \"MAXWELL TWO\"\r\n                ],\r\n                \"count\": 1\r\n            },\r\n            {\r\n                \"index\": 15,\r\n                \"title\": \"Advisory / Discretionary IMA Account / Family Office Agreement\",\r\n                \"participants\": [\r\n                    \"MAXWELL TWO\"\r\n                ],\r\n                \"count\": 1\r\n            }\r\n        ],\r\n        \"uploadPercentage\": 0.0,\r\n        \"proofsAndDocs\": {\r\n            \"keyInformation\": {\r\n                \"title\": \"Key Information\",\r\n                \"description\": \"All documents and/or supporting evidence that are obtained must be in English and legible. If the documents obtained are not in English, the same shall be appropriately translated by a certified translator, with both versions of the documents and certification submitted for review. All documents shall also be certified true copy (CTC), as necessary. With reference to Paragraph 6.6.6 of Guidelines to MAS Notice SFA04-N02, Authorized Person(s) who can verify & certify true copies are: -  Lawyers, Notary Public, Certified Public and/or Professional Accountants or LC’s in-house Operations Team\"\r\n            },\r\n            \"digitalCertification\": {\r\n                \"title\": \"Digital Certification\",\r\n                \"description\": \"The firm will accept digital certification of documents as well (i.e. no wet ink certification is required), provided that the individual who are certifying the documents as true copies are authorized to do so. As indicated above, authorized person(s) include Lawyers, Notary Public,Certified Public and/or Professional Accountants or LC’s in-house Operations Team.  Some examples on how certifications can be done digitally as below:\",\r\n                \"fileName\": \"\",\r\n                \"fileType\": \"\",\r\n                \"filePath\": \"\"\r\n            }\r\n        }\r\n    }\r\n}"
+            },
+            "expectedStatusCode": 200
+          }
+         
+        ]

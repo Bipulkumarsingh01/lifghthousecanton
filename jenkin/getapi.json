@@ -1,0 +1,41 @@
+[
+        {
+          "type": "api",
+          "eventName": "Getkycstatus",
+          "endpoint": "https://3qrzkf2by6.execute-api.ap-southeast-1.amazonaws.com/aim/kyc?requestType=get-kyc-status&userId=user101",
+          "method": "GET",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "payload": {},
+          "expectedStatusCode": 200
+        },
+        {
+          "type": "api",
+          "eventName": "signedurl",
+          "endpoint": "https://cloud-api.adroit-vantage.com/dev/aim/secure-download?fileList=ZGV2L2RvY3MvaXNzdWUtYXR0YWNobWVudC91c2VyMTAxLzUxNjU1NDk1LWZkZjYtNGI0ZC1hZmEzLWUwNTk3ZTZiNjc3ZC5qcGc=",
+          "method": "GET",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "payload": {
+            "fileList": "ZGV2L2RvY3MvaXNzdWUtYXR0YWNobWVudC91c2"
+          },
+          "expectedStatusCode": 200
+        },
+        {
+          "type": "api",
+          "eventName": "Kyc stage data",
+          "endpoint": "https://cloud-api.adroit-vantage.com/dev/aim/kyc?requestType=get-kyc-stage-data&userId=5f023c2c-cbc8-4efd-9215-e6b642b9c26d&kycStage=personalIdentity",
+          "method": "GET",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "payload": {
+            "requestType": "get-kyc-stage-data",
+            "userId": "5f023c2c-cbc8-4efd-9215-e6b642b9c26d",
+            "kycStage": "personalIdentity"
+          },
+          "expectedStatusCode": 200
+        }
+      ]

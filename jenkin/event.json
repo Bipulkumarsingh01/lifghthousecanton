@@ -1,0 +1,49 @@
+[
+    {
+      "type":"lambda",
+      "eventName": "event1",  
+      "payload": {
+        "version": "2.0",
+        "routeKey": "ANY /reporting-module",
+        "rawPath": "/reporting-module",
+        "rawQueryString": "ticketId=ojers",
+        "headers": {
+          "accept": "/",
+          "accept-encoding": "gzip, deflate, br",
+          "content-length": "369",
+          "content-type": "application/json",
+          "host": "5jg01ylkhd.execute-api.ap-southeast-1.amazonaws.com",
+          "postman-token": "2a93edbf-cf6b-4044-9415-a286f2f1866d",
+          "user-agent": "PostmanRuntime/7.32.2",
+          "x-amzn-trace-id": "Root=1-64645d0c-5807b1856cad22c77b21a818",
+          "x-forwarded-for": "52.221.94.206",
+          "x-forwarded-port": "443",
+          "x-forwarded-proto": "https"
+        },
+        "queryStringParameters": {
+          "ticketId": "ojers"
+        },
+        "requestContext": {
+          "accountId": "398668967408",
+          "apiId": "5jg01ylkhd",
+          "domainName": "5jg01ylkhd.execute-api.ap-southeast-1.amazonaws.com",
+          "domainPrefix": "5jg01ylkhd",
+          "http": {
+            "method": "PUT",
+            "path": "/reporting-module",
+            "protocol": "HTTP/1.1",
+            "sourceIp": "52.221.94.206",
+            "userAgent": "PostmanRuntime/7.32.2"
+          },
+          "requestId": "FDN6BgHHSQ0EJ9g=",
+          "routeKey": "ANY /reporting-module",
+          "stage": "$default",
+          "time": "17/May/2023:04:50:20 +0000",
+          "timeEpoch": 1684299020619
+        },
+        "body": "{\r\n    \"user_id\": \"9999999999999999999\",\r\n    \"departmentCode\": \"marketing\",\r\n    \"ticketId\": \"v27yo\",\r\n    \"status\": \"pending\",\r\n    \"updatedBy\": \"sangam\",\r\n    \"assignto\": \"ravi\",\r\n    \"category\": \"Technical Support\",\r\n    \"priority\": \"high\",\r\n    \"description\": \"My computer won't start\",\r\n    \"postedTimeEpoch\": 1684298148305,\r\n    \"resolutiondate\": \"12=2020-12\"\r\n}",
+        "isBase64Encoded": false
+      },
+      "expectedStatusCode": 500
+    }
+  ]
